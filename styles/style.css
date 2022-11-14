@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
+.hr__header {
+  margin-top: 0px;
+  height: 1px;
+  background-color: #3F3F46;
+  border-width: 0;
+}
+
+body {
+  font-family: Inter;
+  background: #18181B;
+  font-weight: 500;
+  color: white;
+  margin: 0 !important;
+}
+
+.header {
+  display: flex;
+  background: #27272A;
+  margin: 0 0;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  width: 1280px;
+  flex-direction: row;
+  align-items: center;
+}
+
+.form__input {
+  width: 392px;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 10px;
+  padding: 13px 40px;
+  color: white;
+  font-size: 20px;
+  border-width: 0px;
+  align-self: flex-start;
+}
+
+.form__button {
+  display: block;
+  background-image: url(../images/search.svg);
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: none;
+  left: 10px;
+  align-self: flex-start;
+}
+
+.form {
+  display: flex;
+}
+
+.title {
+  margin: center;
+  text-align: center;
+}
+
+.table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.image__logo {
+  display: flex;
+  align-self: flex-start;
+}
+
+.table thead tr {
+  color: #ffffff;
+  text-align: left;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.table th,
+.table td {
+  padding: 12px 15px;
+}
+
+.tabs {
+  margin: auto;
+}
+
+.table2 {
+  margin: auto;
+}
+
+.volume {
+  text-align: right;
+}
+
+.image {
+  padding-right: 5px;
+  width: 30px;
+  height: auto;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
