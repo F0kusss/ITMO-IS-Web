@@ -37,6 +37,7 @@ body {
 .logo__image {
   display: flex;
   justify-self: flex-start !important;
+  margin: 20px;
 }
 
 .nav__bar {
@@ -58,6 +59,8 @@ body {
   flex-direction: row;
   height: 4rem;
 }
+
+
 
 .nav__list__item {
   display: flex;
@@ -487,4 +490,12 @@ a:active {
 
 ul {
   list-style-type: none;
+}
+
+@media screen and (max-width: 890px) {
+  .nav__list { display: none;}
+}
+
+@media screen and (max-width: 650px) {
+  .button__connect__wallet { display: none !important; } 
 }
