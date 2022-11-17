@@ -20,6 +20,10 @@ body {
   background: #27272A;
   margin: 0 0;
   justify-content: center;
+  /* The next 3 lines are only for the purpose of the 3rd lab */
+  position: absolute;
+  top: 0px;
+  width: 100%;
 }
 
 .container {
