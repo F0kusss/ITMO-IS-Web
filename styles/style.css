@@ -21,9 +21,6 @@ body {
   margin: 0 0;
   justify-content: center;
   /* The next 3 lines are only for the purpose of the 3rd lab */
-  position: absolute;
-  top: 0px;
-  width: 100%;
 }
 
 .container {
@@ -37,7 +34,7 @@ body {
 .logo__image {
   display: flex;
   justify-self: flex-start !important;
-  margin: 20px;
+  margin: 0 20px;
 }
 
 .nav__bar {
@@ -330,6 +327,7 @@ a:active {
 
 .change__column {
   width: 162px;
+  margin-right: 40px;
 }
 
 
@@ -349,17 +347,22 @@ a:active {
   color: red;
   font-weight: 600;
   width: 162px;
+  margin-right: 40px;
 }
 
 .green__column {
   color: #22C55E;
   font-weight: 600;
   width: 162px;
+  margin-right: 40px;
 }
 
 .main__table {
+  display: flex;
   margin: 0 auto;
   margin-top: 20px;
+  flex-shrink: 1;
+  flex-grow: 1;
 }
 
 .footer {
@@ -452,6 +455,7 @@ a:active {
 .footer__list__section {
   width: 8rem;
   align-items: flex-start;
+  margin-right: 20px;
 }
 
 .footer__h1 {
@@ -492,10 +496,50 @@ ul {
   list-style-type: none;
 }
 
+.footer__main__div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.footer__right__div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 @media screen and (max-width: 890px) {
   .nav__list { display: none;}
 }
 
 @media screen and (max-width: 650px) {
   .button__connect__wallet { display: none !important; } 
+}
+
+@media screen and (max-width: 1290px){
+  .supply__column { display: none !important; } 
+}
+
+@media screen and (max-width: 1090px){
+  .volume__column { display: none !important; } 
+}
+
+@media screen and (max-width: 900px){
+  .mcap__column { display: none !important; } 
+}
+
+@media screen and (max-width: 650px){
+  .change__column { display: none !important; } 
+  .red__column { display: none !important; } 
+  .green__column { display: none !important; } 
+}
+
+
+
+@media screen and (max-width: 890px) {
+  .footer__main__div {
+    flex-direction: column; 
+    align-items: center; 
+    }
+  .footer__left__div {margin-bottom: 50px;}
 }
