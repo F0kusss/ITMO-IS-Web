@@ -363,6 +363,7 @@ a:active {
   margin-top: 20px;
   flex-shrink: 1;
   flex-grow: 1;
+  flex-direction: column;
 }
 
 .footer {
@@ -507,6 +508,37 @@ ul {
   flex-direction: row;
   justify-content: space-between;
   gap: 6rem;
+}
+
+.pagenumbers {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+  margin: 5px;
+}
+
+.pagenumbers button {
+	height: 2rem;
+  min-width: 32px;
+  margin: 5px;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  width: auto;
+  cursor: pointer;
+  border-style: none;
+  background-color: transparent;
+  color: white;
+}
+
+.pagenumbers button:hover {
+	background-color: #3F3F46;
+  transition-duration: .15s;
+}
+
+.pagenumbers button.active {
+	background-color: #3F3F46;
+	box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: 890px) {
