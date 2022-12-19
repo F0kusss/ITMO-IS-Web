@@ -1,4 +1,4 @@
 # ITMO-IS-Web
-Repository for NFT Marketplace project. ITMO IS.  
+Repository for Coin Vision project. ITMO IS.  
 Oleg Kulikov  
 Mikhail Valuiskii

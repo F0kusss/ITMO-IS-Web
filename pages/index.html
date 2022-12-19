@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Coin Vision</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../styles/style.css">
+    <script src="../scripts/logic.js"></script>
+    <link rel="icon" href="../images/logo_notext.png">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <a class="logo__image" href="#">
+                <img src="../images/logo.png" alt="logo" width="200" height="53">
+            </a>
+            <nav class="nav__bar">
+                <ul class="nav__list">
+                    <li class="nav__list__item">
+                        <a class="nav__list__current__text" href="../pages/index.html">
+                            Cryptocurrencies
+                            <span class="nav__list__current__line">
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav__list__item">
+                        <a id="item" class="nav__list__other__text" href="../pages/index.html">
+                            Exchanges
+                            <span id="line" class="nav__list__other__line">
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav__list__item">
+                        <a id="item" class="nav__list__other__text" href="../pages/index.html">
+                            Watchlist
+                            <span id="line" class="nav__list__other__line">
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="form">
+                <button class="form__button"></button>
+                <input id="search__box" class="form__input" type="search" placeholder="Search">
+            </div>
+            <div class="header__right__div">
+                <div class="header__auth__div">
+                    <div class="header__auth__inner">
+                        <button class="button__connect__wallet" type="button" tabindex="0">
+                            <span class="connect__wallet__span">Connect Wallet</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <hr class="hr__header">
+
+    <div class="main__table">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="rank__column" scope="col">Rank</th>
+                    <th class="coin__column" id="head__row__coin" scope="col">
+                        <div id="coin__div">
+                            Coin
+                        </div>
+                    </th>
+                    <th class="mcap__column" scope="col">Market Cap</th>
+                    <th id="head__row__price" class="price__column" scope="col">Price</th>
+                    <th class="volume__column" scope="col">Volume (24h)</th>
+                    <th class="supply__column" scope="col">Circulating Supply</th>
+                    <th class="change__column" scope="col">Price Change (24h)</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody1">
+            </tbody>
+        </table>
+    </div>
+
+    <footer class="footer">
+        <div class="footer__main__div">
+            <div class="footer__left__div">
+                <div class="logo__div">
+                    <a href="." class="a__footer">
+                        <div class="a__footer__div">
+                            <img class="footer__logo" src="../images/logo.png">
+                            <span class="footer__span">
+                                Beta
+                            </span>
+                        </div>
+                    </a>
+                    <p class="slogan__left__p">
+                        Made for the Decentralized World
+                    </p>
+                    <p class="affiliation__p">
+                        CoinVision is not affiliated with any project or company.
+                        There is no financial or investment advice.
+                    </p>
+                </div>
+                <p class="copyright__p">
+                    © 2022 CoinVision. All rights almost reserved
+                </p>
+            </div>
+            <div class="footer__right__div">
+                <section class="footer__list__section">
+                    <h1 class="footer__h1">
+                        Services
+                    </h1>
+                    <ul class="footer__ul">
+                        <li class="footer__li">
+                            <a href="#" class="footer__li__a">
+                                Cryptocurrencies
+                            </a>
+                        </li>
+                        <li class="footer__li">
+                            <a href="#" class="footer__li__a">
+                                Exchanges
+                            </a>
+                        </li>
+                        <li class="footer__li">
+                            <a href="#" class="footer__li__a">
+                                Watchlist
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="footer__list__section">
+                    <h1 class="footer__h1">
+                        Social
+                    </h1>
+                    <ul class="footer__ul">
+                        <li class="footer__li">
+                            <a href="#" class="footer__li__a">
+                                Telegram
+                            </a>
+                        </li>
+                        <li class="footer__li">
+                            <a href="#" class="footer__li__a">
+                                GitHub
+                            </a>
+                        </li>
+                        <li class="footer__li">
+                            <a href="#" class="footer__li__a">
+                                Email
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="footer__list__section">
+                    <h1 class="footer__h1">
+                        Support
+                    </h1>
+                    <ul class="footer__ul">
+                        <li class="footer__li">
+                            <a href="#" class="footer__li__a">
+                                Request listing
+                            </a>
+                        </li>
+                        <li class="footer__li">
+                            <a href="#" class="footer__li__a">
+                                Privacy policy
+                            </a>
+                        </li>
+                        <li class="footer__li">
+                            <a href="#" class="footer__li__a">
+                                Terms of use
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
