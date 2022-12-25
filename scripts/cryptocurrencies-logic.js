@@ -2,12 +2,14 @@ var baseURL = "https://api.coingecko.com/api/v3";
 
 const ITEMS_PER_PAGE = 100;
 const PAGES_NUMBER = 5;
+const LOCAL_STORAGE_COINS = 'saved_crypto';
+const LOCAL_STORAGE_MARKETS = 'saved_markets';
 
-function load_table_page(page_number) {
+async function load_table_page(page_number) {
   const table_element = document.getElementById('cryptocurrencies_table');
   table_element.innerHTML = "";
   var coinDataURL = "/coins/markets?vs_currency=usd&order=market_cap_desc%2C%20volume_desc%2C%20id_desc&per_page=" + ITEMS_PER_PAGE + "&page=" + page_number + "&sparkline=false&price_change_percentage=24h";
-  fetch(baseURL + coinDataURL)
+  await fetch(baseURL + coinDataURL)
   .then(res =>{
     res.json().then(data =>{
       for(var i = 0; i < ITEMS_PER_PAGE; i++){
@@ -27,8 +29,9 @@ function load_table_page(page_number) {
         }
 
         let positive = "+";
-
-        let tableRow = "<tr><td class='rank__column'>"+ rank + "</td>" + "<td><img class= 'image__column' src= " + image + "/>" + "<div class='coin__column'>" + 
+        
+        let tableRow = "<tr><td class='star__column'><button class='star__button'><img class='star__image__inactive' src='../images/empty-star.svg' alt='buttonpng' border='0' /></button></td><td class='rank__column'>" +
+        rank + "</td>" + "<td><img class= 'image__column' src= " + image + "/>" + "<div class='coin__column'>" + 
         coin + "</div>" + "</td>" + "<td class='mcap__column'>" + mcap + "</td>" + "<td class = 'price__column'>"+ price + "</td>" + 
         "<td class='volume__column'>" + volume + "</td>"+ "<td class='supply__column'>" + supply + "</td>";
       
@@ -45,6 +48,65 @@ function load_table_page(page_number) {
   .catch(err =>{
     $("#cryptocurrencies_table").html(err);
   });
+}
+
+function set_button_listerners() {
+  let buttons = document.querySelectorAll('.star__button');
+
+  buttons.forEach(b => {
+    b.addEventListener('click', () => {
+      let img = b.childNodes[0];
+      img.src = "../images/full-star.svg";
+      if(img.classList[0] == "star__image__inactive") {
+        img.classList.remove('star__image__inactive');
+        img.classList.add('star__image__active');
+        let coin_name = b.parentElement.parentElement.childNodes[2].childNodes[1].innerText;
+
+        add_coin_to_storage(coin_name)
+      }
+      else {
+        let coin_name = b.parentElement.parentElement.childNodes[2].childNodes[1].innerText;
+        remove_coin_from_storage(coin_name)
+
+        img.src = "../images/empty-star.svg";
+        img.classList.remove('star__image__active');
+        img.classList.add('star__image__inactive');
+      }
+    })
+  });
+}
+
+function find_index_storage(array_object, coin_name) {
+  var index = -1;
+      array_object.forEach(function(item, i){
+        if( item == coin_name) {
+            index = i;
+        }
+      });
+
+  return index;
+}
+
+function add_coin_to_storage(coin_name) {
+  if(localStorage.getItem(LOCAL_STORAGE_COINS) === null) {
+    let array = [coin_name];
+    localStorage.setItem(LOCAL_STORAGE_COINS, JSON.stringify(array));  
+  }
+  else {
+    let array_object = JSON.parse(localStorage.getItem(LOCAL_STORAGE_COINS));
+    array_object.push(coin_name);
+    localStorage.setItem(LOCAL_STORAGE_COINS, JSON.stringify(array_object));
+  }
+}
+
+function remove_coin_from_storage(coin_name) {
+  let array_object = JSON.parse(localStorage.getItem(LOCAL_STORAGE_COINS));
+
+  let index = find_index_storage(array_object, coin_name);
+
+  array_object.splice(index, 1);
+
+  localStorage.setItem(LOCAL_STORAGE_COINS, JSON.stringify(array_object));
 }
 
 let current_page = 1;
@@ -67,17 +129,45 @@ function pagination_button(page_number) {
   button.addEventListener('click', function () {
     current_page = page_number;
     load_table_page(current_page);
-
     let current_button = document.querySelector('.pagenumbers button.active');
     current_button.classList.remove('active');
 
     button.classList.add('active');
   })
-
+  set_button_listerners();
+  
   return button;
+}
+
+function synchronize_buttons_with_storage() {
+  let buttons = document.querySelectorAll('.star__button');
+
+  buttons.forEach(b => {
+    let img = b.childNodes[0];
+
+    let coin_name = b.parentElement.parentElement.childNodes[2].childNodes[1].innerText;
+    let array_object = JSON.parse(localStorage.getItem(LOCAL_STORAGE_COINS));
+
+    if(array_object != null) {
+      let index = find_index_storage(array_object, coin_name);
+
+      if(index != -1) {
+        img.src = "../images/full-star.svg";
+        img.classList.remove('star__image__inactive');
+        img.classList.add('star__image__active');
+      }
+    }
+  })
 }
 
 const pagination_element = document.getElementById('pagination');
 
 load_table_page(current_page)
 setup_pagination(pagination_element)
+
+setTimeout(function() {
+  set_button_listerners()
+  synchronize_buttons_with_storage()
+}, 500);
+
+
