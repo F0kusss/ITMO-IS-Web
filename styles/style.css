@@ -260,6 +260,10 @@ a:active {
   border-top: 1px solid #3F3F46;
 }
 
+.empty__row {
+  width: 32px;
+}
+
 .table tr {
   display: flex;
   justify-content: space-between;

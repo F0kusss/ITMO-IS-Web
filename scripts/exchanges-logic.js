@@ -10,7 +10,6 @@ async function build_table_page(page_number) {
     let table_body = document.getElementById('cryptocurrencies_table');
     table_body.innerHTML = "";
     let data = await load_table_page_data(page_number);
-    console.log(data);
 
     for(let i = 0; i < ITEMS_PER_PAGE; i++) {
         let rank = data[i].trust_score_rank;

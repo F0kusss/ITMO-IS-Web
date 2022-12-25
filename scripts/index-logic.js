@@ -159,6 +159,36 @@ function synchronize_buttons_with_storage() {
   })
 }
 
+async function setup_wallet_button() {
+  let button = document.querySelector('.button__connect__wallet');
+
+  button.addEventListener('click', async () => {
+    if(window !== undefined && window.ethereum !== undefined) {
+      try {
+        const accounts = await window.ethereum.request({
+          method: "eth_requestAccounts",
+        });
+        console.log(accounts[0]);
+        button.innerText = "Connected: " + accounts[0].substring(0, 6) + "..." + accounts[0].substring(38);
+      }
+      catch (err) {
+        console.error(err.message)
+      }
+    }
+  });
+
+  if(window !== undefined && window.ethereum !== undefined) {
+    const accounts = await window.ethereum.request({
+      method: "eth_accounts",
+    });
+    if (accounts.length > 0) {
+      button.innerText = "Connected: " + accounts[0].substring(0, 6) + "..." + accounts[0].substring(38);
+    }
+  }
+}
+
+
+
 const pagination_element = document.getElementById('pagination');
 
 load_table_page(current_page)
@@ -166,7 +196,9 @@ setup_pagination(pagination_element)
 
 setTimeout(function() {
   set_button_listerners()
+  
   synchronize_buttons_with_storage()
+  setup_wallet_button()
 }, 500);
 
 
