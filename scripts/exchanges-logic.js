@@ -1,6 +1,6 @@
 const ITEMS_PER_PAGE = 10;
 const PAGES_NUMBER = 5;
-
+const LOCAL_STORAGE_COINS = 'saved_crypto';
 async function load_table_page_data(page_number) {
     const markets_url = 'https://api.coingecko.com/api/v3/exchanges?per_page=' + ITEMS_PER_PAGE + '&page=' + page_number;
     return await (await fetch(markets_url)).json();

@@ -3,7 +3,6 @@ var baseURL = "https://api.coingecko.com/api/v3";
 const ITEMS_PER_PAGE = 100;
 const PAGES_NUMBER = 5;
 const LOCAL_STORAGE_COINS = 'saved_crypto';
-const LOCAL_STORAGE_MARKETS = 'saved_markets';
 
 async function load_table_page(page_number) {
   const table_element = document.getElementById('cryptocurrencies_table');
