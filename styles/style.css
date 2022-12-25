@@ -265,6 +265,10 @@ a:active {
   justify-content: space-between;
 }
 
+#watchlist_table {
+  display: none;
+}
+
 .table th,
 .table td {
   display: flex;
@@ -288,7 +292,20 @@ a:active {
 }
 
 #rank__row__coin{
-  margin-left: 63px;
+  margin-left: 63 px;
+}
+
+#rank__row__coin__2{
+  margin-left: 63 px;
+}
+
+.watchlist__message {
+  display: flex;
+  max-width: 800px;
+  margin: auto;
+  margin-top: 250px;
+  margin-bottom: 250px;
+  text-align: center;
 }
 
 .rank__column {
@@ -604,6 +621,11 @@ ul {
 }
 
 #head__row__coin {
+  width: 215px;
+  justify-content: flex-start;
+}
+
+#head__row__coin__2 {
   width: 215px;
   justify-content: flex-start;
 }
