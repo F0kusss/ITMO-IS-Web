@@ -736,3 +736,54 @@ ul {
     }
   .footer__left__div {margin-bottom: 50px;}
 }
+
+.template__container {
+  display: grid;
+  margin: auto;
+  margin-bottom: 100px;
+  width: 1200px;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-row-gap: 20px;
+  grid-column-gap: 50px;
+  grid-template-areas:
+   "coin info"
+   "graph graph"
+   ;
+}
+
+.coin__block {
+  display: flex;
+  grid-area: coin;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.coin__name__block {
+  display: flex;
+}
+
+.coin__price__block {
+  display: flex;
+  margin-bottom: 200px;
+}
+
+.info__block {
+  display: flex;
+  grid-area: info;
+  width: 400px;
+  background-color: #27272A;
+  text-align: center;
+}
+
+.graph__block {
+  display: flex;
+  grid-area: graph;
+  flex-direction: column;
+}
+
+.graph__main__block{
+  display: flex;
+  width: 100px;
+  margin-top: 10px;
+}
