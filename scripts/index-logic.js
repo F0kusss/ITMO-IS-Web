@@ -168,7 +168,6 @@ async function setup_wallet_button() {
         const accounts = await window.ethereum.request({
           method: "eth_requestAccounts",
         });
-        console.log(accounts[0]);
         button.innerText = "Connected: " + accounts[0].substring(0, 6) + "..." + accounts[0].substring(38);
       }
       catch (err) {

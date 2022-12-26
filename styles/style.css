@@ -740,15 +740,16 @@ ul {
 .template__container {
   display: grid;
   margin: auto;
+  margin-top: 50px;
   margin-bottom: 100px;
-  width: 1200px;
-  grid-template-columns: auto auto;
+  width: 1340px;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
   grid-row-gap: 20px;
   grid-column-gap: 50px;
   grid-template-areas:
    "coin info"
-   "graph graph"
+   "graph indicators"
    ;
 }
 
@@ -771,19 +772,36 @@ ul {
 .info__block {
   display: flex;
   grid-area: info;
+  flex-direction: column;
   width: 400px;
   background-color: #27272A;
-  text-align: center;
+  color: #D4D4D8;
+  text-align: left;
+  border-radius: 1.5rem;
+  padding: 20px;
+}
+
+.info__block__title h3 {
+  margin: 0px;
+  margin-bottom: 10px;
+  color: white;
 }
 
 .graph__block {
   display: flex;
   grid-area: graph;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .graph__main__block{
   display: flex;
-  width: 100px;
+  width: 800px;
+  height: 500px;
   margin-top: 10px;
+}
+
+.tradingview-widget-container {
+  width: 100%;
 }
