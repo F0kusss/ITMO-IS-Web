@@ -29,9 +29,9 @@
                         </a>
                     </li>
                     <li class="nav__list__item">
-                        <a id="item" class="nav__list__current__text" href="../pages/watchlist.html">
+                        <a id="item" class="nav__list__other__text" href="../pages/watchlist.html">
                             Watchlist
-                            <span id="line" class="nav__list__current__line">
+                            <span id="line" class="nav__list__other__line">
                             </span>
                         </a>
                     </li>
@@ -55,26 +55,44 @@
     <hr class="hr__header">
     <div class="template__container" >
         <div class="coin__block">
-            <div class="coin__name__block">Bitcoin</div>
-            <div class="coin__price__block">19 600p</div>
+            <div class="coin__name__block">
+                <img id="coin_image" style="height: 60px; width: 60px;">
+                <div class="name__block__stats" style="margin-left: 15px;">
+                    <div class="name__block" style="margin-bottom: 5px;">
+                        <h1 id="name_h1" style="margin-bottom: 0px; margin-top: 0px;"></h1>
+                        <span id="coin_ticker" class="name__block__ticker"></span>
+                    </div>
+                    <div class="rank__block">
+                        <span id="rank_text" class="rank__span">
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="coin__price__block">
+                <span class="coin__price__span">
+                    <div id="coin_name_price" class="price__ticker__block">
+                    </div>
+                    <h2 id="price_h2" style="margin: 0px;"> </h2>
+                </span>
+            </div>
         </div>
         <div class="info__block">
-            <span class="info__block__title">
-                <h3> About BTC </h3>
-            </span>
-            <span>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione alias tempore quisquam quasi magni mollitia labore necessitatibus consequuntur minima voluptatem, omnis ab ad qui, eaque inventore? Dolores molestiae unde odio error sunt similique eum non repellendus quod doloremque, beatae cumque recusandae nostrum iure et ipsum dolor aliquid officiis sequi nihil voluptas. Modi suscipit veritatis corporis. Consequuntur, expedita, officia impedit vel dolorem possimus non aperiam, omnis maxime ex officiis quos odio eos cumque accusantium. Id, unde nulla ducimus minus quos distinctio eius! Esse dolore necessitatibus quis voluptas fugit asperiores laboriosam vero, corrupti nemo accusamus, dolor provident, nihil beatae? Quidem, totam. Culpa?
-            </span>
+            <div class="info__text__block">
+                <span class="info__block__title">
+                    <h3 id="about_h3"> </h3>
+                </span>
+                <span id="description_span">
+                </span>
+            </div>
         </div>
         <div class="graph__block">
-            <div class="graph__text__block">Bitcoin graph</div>
-            <div class="graph__main__block">
+            <div id="graph_div" class="graph__main__block">
                 <!-- TradingView Widget BEGIN -->
                 <div class="tradingview-widget-container">
                     <div id="tradingview_b9cb4"></div>
                     <div class="tradingview-widget-copyright"></div>
                     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-                    <script type="text/javascript">
+                    <script id="graph_script" type="text/javascript">
                     new TradingView.widget(
                     {
                     "autosize": true,
@@ -95,25 +113,43 @@
                 <!-- TradingView Widget END -->    
             </div>
         </div>
-        <div class="indicator__block">
-            <ul>
-                <li>
+        <ul class="indicator__block">
+            <li class="indicator__list__element">
+                <div id="mcap" class="indicator__name">
                     Market Cap
-                </li>
-                <li>
+                </div>
+                <div id="mcap_value" class="indicator__value">
+                </div>
+            </li>
+            <li class="indicator__list__element">
+                <div id="fdv" class="indicator__name">
                     FDV
-                </li>
-                <li>
+                </div>
+                <div id="fdv_value" class="indicator__value">
+                </div>
+            </li>
+            <li class="indicator__list__element">
+                <div id="volume" class="indicator__name">
                     Volume 24h
-                </li>
-                <li>
-                    Circulating supply
-                </li>
-                <li>
-                    Total supply
-                </li>
-            </ul>
-        </div>
+                </div>
+                <div id="volume_value" class="indicator__value">
+                </div>
+            </li>
+            <li class="indicator__list__element">
+                <div id="circulating_supply" class="indicator__name">
+                    Circulating Supply
+                </div>
+                <div id="circulating_supply_value" class="indicator__value">
+                </div>
+            </li>
+            <li class="indicator__list__element">
+                <div id="total_supply" class="indicator__name">
+                    Total Supply
+                </div>
+                <div id="total_supply_value" class="indicator__value">
+                </div>
+            </li>
+        </ul>
     </div>
     <footer class="footer">
         <div class="footer__main__div">

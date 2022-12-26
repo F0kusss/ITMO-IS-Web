@@ -745,11 +745,12 @@ ul {
   width: 1340px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
-  grid-row-gap: 20px;
+  grid-row-gap: 30px;
   grid-column-gap: 50px;
   grid-template-areas:
-   "coin info"
-   "graph indicators"
+   "coin coin"
+   "graph info"
+   "indicators indicators"
    ;
 }
 
@@ -757,23 +758,64 @@ ul {
   display: flex;
   grid-area: coin;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .coin__name__block {
   display: flex;
+  align-items: center;
 }
 
+.name__block__stats {
+  display: flex;
+  flex-direction: column;
+}
+
+.rank__block {
+  display: flex;
+  justify-content: left;
+}
+
+.rank__span {
+  background-color: #2E2E33;
+  border-radius: 0.4rem;
+  font-size: 0.8rem;
+  padding: 5px;
+  text-align: center;
+}
+
+.name__block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.name__block__ticker {
+  color: #716E68;
+  align-self: center;
+  margin-left: 10px;
+  font-weight: 600;
+}
 .coin__price__block {
   display: flex;
-  margin-bottom: 200px;
+  justify-content: flex-start;
+  align-items: top;
+  padding-top: 20px;
 }
 
-.info__block {
+.price__ticker__block {
+  color: #716E68;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.info__text__block {
   display: flex;
   grid-area: info;
   flex-direction: column;
-  width: 400px;
+  width: auto;
+  height: auto;
   background-color: #27272A;
   color: #D4D4D8;
   text-align: left;
@@ -795,11 +837,43 @@ ul {
   align-items: center;
 }
 
+.indicator__block {
+  display: flex;
+  grid-area: indicators;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.indicator__list__element {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.table__row:hover {
+  background-color: #9e9ea01c;
+}
+
+
+
+.indicator__name {
+  color: #716E68;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.table__row__button {
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
 .graph__main__block{
   display: flex;
   width: 800px;
   height: 500px;
-  margin-top: 10px;
 }
 
 .tradingview-widget-container {

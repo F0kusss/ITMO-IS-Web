@@ -3,6 +3,7 @@ var baseURL = "https://api.coingecko.com/api/v3";
 const ITEMS_PER_PAGE = 100;
 const PAGES_NUMBER = 5;
 const LOCAL_STORAGE_COINS = 'saved_crypto';
+const TEMPLATE_COIN = 'template_coin';
 
 async function load_table_page(page_number) {
   const table_element = document.getElementById('cryptocurrencies_table');
@@ -29,9 +30,9 @@ async function load_table_page(page_number) {
 
         let positive = "+";
         
-        let tableRow = "<tr><td class='star__column'><button class='star__button'><img class='star__image__inactive' src='../images/empty-star.svg' alt='buttonpng' border='0' /></button></td><td class='rank__column'>" +
-        rank + "</td>" + "<td><img class= 'image__column' src= " + image + "/>" + "<div class='coin__column'>" + 
-        coin + "</div>" + "</td>" + "<td class='mcap__column'>" + mcap + "</td>" + "<td class = 'price__column'>"+ price + "</td>" + 
+        let tableRow = "<tr class='table__row'><td class='star__column'><button class='star__button'><img class='star__image__inactive' src='../images/empty-star.svg' alt='buttonpng' border='0' /></button></td><td class='rank__column'>" +
+        rank + "</td>" + "<td><img class= 'image__column' src= " + image + "/>" + "<button class='table__row__button' href='./coin-template.html'><div class='coin__column'>" + 
+        coin + "</div></button>" + "</td>" + "<td class='mcap__column'>" + mcap + "</td>" + "<td class = 'price__column'>"+ price + "</td>" + 
         "<td class='volume__column'>" + volume + "</td>"+ "<td class='supply__column'>" + supply + "</td>";
       
         if(change < 0){
@@ -186,7 +187,16 @@ async function setup_wallet_button() {
   }
 }
 
-
+function add_row_button_listeners() {
+  const buttons = document.querySelectorAll('.table__row__button');
+  buttons.forEach(button => {
+    const coin_name = button.childNodes[0].innerText;
+    button.addEventListener('click', () => {
+      window.open('../pages/coin-template.html');
+      localStorage.setItem(TEMPLATE_COIN, coin_name);
+    });
+  });
+}
 
 const pagination_element = document.getElementById('pagination');
 
@@ -200,4 +210,7 @@ setTimeout(function() {
   setup_wallet_button()
 }, 500);
 
+setTimeout(function() {
+  add_row_button_listeners();
+}, 500);
 
