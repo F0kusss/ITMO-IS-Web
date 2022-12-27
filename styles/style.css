@@ -854,7 +854,9 @@ ul {
   background-color: #9e9ea01c;
 }
 
-
+.exchanges__row:hover {
+  background-color: #9e9ea01c;
+}
 
 .indicator__name {
   color: #716E68;

@@ -59,6 +59,7 @@ async function build_table_page(page_number) {
         volume_section.innerText = trading_volume_btc;
 
         let new_row = document.createElement('tr');
+        new_row.classList.add('exchanges__row');
         new_row.appendChild(rank_section);
         new_row.appendChild(name_image_section);
         new_row.appendChild(trust_section);
@@ -98,7 +99,35 @@ function pagination_button(page_number) {
   return button;
 }
 
+async function setup_wallet_button() {
+  let button = document.querySelector('.button__connect__wallet');
+
+  button.addEventListener('click', async () => {
+    if(window !== undefined && window.ethereum !== undefined) {
+      try {
+        const accounts = await window.ethereum.request({
+          method: "eth_requestAccounts",
+        });
+        button.innerText = "Connected: " + accounts[0].substring(0, 6) + "..." + accounts[0].substring(38);
+      }
+      catch (err) {
+        console.error(err.message)
+      }
+    }
+  });
+
+  if(window !== undefined && window.ethereum !== undefined) {
+    const accounts = await window.ethereum.request({
+      method: "eth_accounts",
+    });
+    if (accounts.length > 0) {
+      button.innerText = "Connected: " + accounts[0].substring(0, 6) + "..." + accounts[0].substring(38);
+    }
+  }
+}
+
 const pagination_element = document.getElementById('pagination');
 
 build_table_page(current_page)
 setup_pagination(pagination_element)
+setup_wallet_button();

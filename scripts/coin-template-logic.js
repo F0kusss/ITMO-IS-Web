@@ -8,8 +8,6 @@ async function load_page() {
     await fetch(search_url+coin_name).then((response) => response.json()).then(async (object) => {
         let coin_id = object.coins[0].id;
         await fetch(get_coin_url+coin_id).then((response) => response.json()).then((data) =>{
-            console.log(data);
-
             let ticker = data.symbol.toUpperCase();
             let description = data.description.en;
             let rank = data.market_cap_rank;                    ;
@@ -53,8 +51,41 @@ async function load_page() {
             document.getElementById('rank_text').innerText = "#" + rank + " by Market Cap";
             document.getElementById('coin_name_price').innerText = ticker + " Price";
             document.getElementById('price_h2').innerText = price;
+
+            $('#chart').html("");
+            var symbol = ticker + "USDT";
+            var sc = '<script>var chart2 = new TradingView.widget({"autosize": true,"symbol": "BINANCE:'+symbol+'","interval": "60","timezone": "Etc/UTC","theme": "White","style": "1","locale": "en","toolbar_bg": "rgba(255, 255, 255, 1)","enable_publishing": false,"hideideas": true, "container_id": "chart", "theme": "dark"});<\/script>';
+            $("#chart").append(sc);
         })
     })
 }
 
+async function setup_wallet_button() {
+    let button = document.querySelector('.button__connect__wallet');
+  
+    button.addEventListener('click', async () => {
+      if(window !== undefined && window.ethereum !== undefined) {
+        try {
+          const accounts = await window.ethereum.request({
+            method: "eth_requestAccounts",
+          });
+          button.innerText = "Connected: " + accounts[0].substring(0, 6) + "..." + accounts[0].substring(38);
+        }
+        catch (err) {
+          console.error(err.message)
+        }
+      }
+    });
+  
+    if(window !== undefined && window.ethereum !== undefined) {
+      const accounts = await window.ethereum.request({
+        method: "eth_accounts",
+      });
+      if (accounts.length > 0) {
+        button.innerText = "Connected: " + accounts[0].substring(0, 6) + "..." + accounts[0].substring(38);
+      }
+    }
+  }
+
 load_page();
+setup_wallet_button();

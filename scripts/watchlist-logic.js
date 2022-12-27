@@ -42,7 +42,7 @@ async function load_watchlist_data() {
 
                     let positive = "+";
                     
-                    let tableRow = "<tr><td class='star__column'><button class='star__button'>" + 
+                    let tableRow = "<tr class='table__row'><td class='star__column'><button class='star__button'>" + 
                     "<img class='star__image__inactive' src='../images/empty-star.svg' alt='buttonpng' border='0' /></button></td><td class='rank__column'>" +
                     rank + "</td>" + "<td><img class= 'image__column' src= " + image + "/>" + "<div class='coin__column'>" + 
                     coin + "</div>" + "</td>" + "<td class='mcap__column'>" + mcap + "</td>" + "<td class = 'price__column'>"+ price + "</td>" + 
@@ -140,8 +140,36 @@ function set_button_listerners() {
     });
   }
 
+async function setup_wallet_button() {
+  let button = document.querySelector('.button__connect__wallet');
+
+  button.addEventListener('click', async () => {
+    if(window !== undefined && window.ethereum !== undefined) {
+      try {
+        const accounts = await window.ethereum.request({
+          method: "eth_requestAccounts",
+        });
+        button.innerText = "Connected: " + accounts[0].substring(0, 6) + "..." + accounts[0].substring(38);
+      }
+      catch (err) {
+        console.error(err.message)
+      }
+    }
+  });
+
+  if(window !== undefined && window.ethereum !== undefined) {
+    const accounts = await window.ethereum.request({
+      method: "eth_accounts",
+    });
+    if (accounts.length > 0) {
+      button.innerText = "Connected: " + accounts[0].substring(0, 6) + "..." + accounts[0].substring(38);
+    }
+  }
+}
+
 setTimeout(function() {
     load_watchlist_data();
+    setup_wallet_button();
 }, 500); 
 
 setTimeout(function() {
