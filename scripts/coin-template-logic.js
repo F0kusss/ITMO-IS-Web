@@ -35,6 +35,9 @@ async function load_page() {
             else {
                 var new_description = description_parsed[0];
             }
+            var regex = /(<([^>]+)>)/ig;
+
+            new_description = new_description.replace(regex, "");
             document.getElementById('mcap_value').innerText = mcap;
             document.getElementById('fdv_value').innerText = fdv;
             document.getElementById('volume_value').innerText = volume;
