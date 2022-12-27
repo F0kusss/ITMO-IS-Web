@@ -18,16 +18,16 @@
             <nav class="nav__bar">
                 <ul class="nav__list">
                     <li class="nav__list__item">
-                        <a class="nav__list__current__text" href="../pages/index.html">
+                        <a class="nav__list__other__text" href="../pages/index.html">
                             Cryptocurrencies
-                            <span class="nav__list__current__line">
+                            <span class="nav__list__other__line">
                             </span>
                         </a>
                     </li>
                     <li class="nav__list__item">
-                        <a id="item" class="nav__list__other__text" href="../pages/exchanges.html">
+                        <a id="item" class="nav__list__current__text" href="../pages/exchanges.html">
                             Exchanges
-                            <span id="line" class="nav__list__other__line">
+                            <span id="line" class="nav__list__current__line">
                             </span>
                         </a>
                     </li>
@@ -56,23 +56,18 @@
         </div>
     </header>
     <hr class="hr__header">
-
     <div class="main__table">
         <table class="table">
             <thead>
                 <tr>
-                    <th class="empty__row"></th>
-                    <th class="rank__column" id="rank__row__coin" scope="col">Rank</th>
-                    <th class="coin__column" id="head__row__coin" scope="col">
-                        <div id="coin__div">
-                            Coin
+                    <th class="exchanges__rank__column" scope="col">#</th>
+                    <th class="name__image__column" id="head__row__name" scope="col">
+                        <div id="name__div">
+                            Name
                         </div>
                     </th>
-                    <th class="mcap__column" scope="col">Market Cap</th>
-                    <th id="head__row__price" class="price__column" scope="col">Price</th>
-                    <th class="volume__column" scope="col">Volume (24h)</th>
-                    <th class="supply__column" scope="col">Circulating Supply</th>
-                    <th class="change__column" scope="col">Price Change (24h)</th>
+                    <th class="exchanges__trust__column" scope="col">Trust Score (by CoinGecko)</th>
+                    <th id="exchanges__row__volume" scope="col">24h Volume (BTC)</th>
                 </tr>
             </thead>
             <tbody id="cryptocurrencies_table">
@@ -80,8 +75,6 @@
         </table>
         <div class="pagenumbers" id="pagination">
         </div>
-    </div>
-
     <footer class="footer">
         <div class="footer__main__div">
             <div class="footer__left__div">
@@ -178,7 +171,5 @@
             </div>
         </div>
     </footer>
-    <script src="../scripts/index-logic.js"></script>
+    <script src="../scripts/exchanges-logic.js"></script>
 </body>
-
-</html>

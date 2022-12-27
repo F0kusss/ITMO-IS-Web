@@ -18,9 +18,9 @@
             <nav class="nav__bar">
                 <ul class="nav__list">
                     <li class="nav__list__item">
-                        <a class="nav__list__current__text" href="../pages/index.html">
+                        <a class="nav__list__other__text" href="../pages/index.html">
                             Cryptocurrencies
-                            <span class="nav__list__current__line">
+                            <span class="nav__list__other__line">
                             </span>
                         </a>
                     </li>
@@ -32,9 +32,9 @@
                         </a>
                     </li>
                     <li class="nav__list__item">
-                        <a id="item" class="nav__list__other__text" href="../pages/watchlist.html">
+                        <a id="item" class="nav__list__current__text" href="../pages/watchlist.html">
                             Watchlist
-                            <span id="line" class="nav__list__other__line">
+                            <span id="line" class="nav__list__current__line">
                             </span>
                         </a>
                     </li>
@@ -56,14 +56,13 @@
         </div>
     </header>
     <hr class="hr__header">
-
-    <div class="main__table">
+    <div class="main__table" id="watchlist_table">
         <table class="table">
             <thead>
                 <tr>
                     <th class="empty__row"></th>
-                    <th class="rank__column" id="rank__row__coin" scope="col">Rank</th>
-                    <th class="coin__column" id="head__row__coin" scope="col">
+                    <th class="rank__column" id="rank__row__coin__2" scope="col">Rank</th>
+                    <th class="coin__column" id="head__row__coin__2" scope="col">
                         <div id="coin__div">
                             Coin
                         </div>
@@ -81,7 +80,6 @@
         <div class="pagenumbers" id="pagination">
         </div>
     </div>
-
     <footer class="footer">
         <div class="footer__main__div">
             <div class="footer__left__div">
@@ -178,7 +176,5 @@
             </div>
         </div>
     </footer>
-    <script src="../scripts/index-logic.js"></script>
+    <script src="../scripts/watchlist-logic.js"></script>
 </body>
-
-</html>

@@ -260,9 +260,17 @@ a:active {
   border-top: 1px solid #3F3F46;
 }
 
+.empty__row {
+  width: 32px;
+}
+
 .table tr {
   display: flex;
   justify-content: space-between;
+}
+
+#watchlist_table {
+  display: none;
 }
 
 .table th,
@@ -287,7 +295,25 @@ a:active {
   margin-left: 35px;
 }
 
+#rank__row__coin{
+  margin-left: 63 px;
+}
+
+#rank__row__coin__2{
+  margin-left: 63 px;
+}
+
+.watchlist__message {
+  display: flex;
+  max-width: 800px;
+  margin: auto;
+  margin-top: 250px;
+  margin-bottom: 250px;
+  text-align: center;
+}
+
 .rank__column {
+  display: flex;
   width: 44px;
 }
 
@@ -304,7 +330,7 @@ a:active {
   font-family: Inter;
   width: 180px;
   vertical-align: middle;
-  justify-content: flex-start;
+  justify-content: flex-start !important;
 }
 
 .mcap__column {
@@ -363,6 +389,7 @@ a:active {
   margin-top: 20px;
   flex-shrink: 1;
   flex-grow: 1;
+  flex-direction: column;
 }
 
 .footer {
@@ -415,8 +442,8 @@ a:active {
 
 .footer__span {
   display: inline-flex;
-  margin-right: calc(0.25rem * var(--tw-space-x-reverse));
-  margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
+  margin-right: 0.25rem;
+  margin-left: 0.25rem;
   height: 26px;
   align-items: center;
   border-radius: 0.5rem;
@@ -509,6 +536,170 @@ ul {
   gap: 6rem;
 }
 
+.pagenumbers {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+  margin: 5px;
+}
+
+.pagenumbers button {
+	height: 2rem;
+  min-width: 32px;
+  margin: 5px;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  width: auto;
+  cursor: pointer;
+  border-style: none;
+  background-color: transparent;
+  color: white;
+}
+
+.pagenumbers button:hover {
+	background-color: #3F3F46;
+  transition-duration: .15s;
+}
+
+.pagenumbers button.active {
+	background-color: #3F3F46;
+	box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+
+.table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  margin: 0 auto;
+  width: 1280px;
+}
+
+.image__logo {
+  display: flex;
+  align-self: flex-start;
+}
+
+.table thead tr {
+  color: #ffffff;
+  text-align: left;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid #3F3F46;
+}
+
+.table tbody tr:last-of-type {
+  border-bottom: transparent;
+}
+
+.table tbody tr:first-of-type {
+  border-top: 1px solid #3F3F46;
+}
+
+.table tr {
+  display: flex;
+  justify-content: space-between;
+}
+
+.table th,
+.table td {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 12px 15px;
+  align-items: center;
+}
+
+.name__image__column {
+  display: flex;
+  font-family: Inter;
+  width: 180px;
+  vertical-align: middle;
+  justify-content: flex-start !important;
+}
+
+#head__row__price {
+  color: white;
+}
+
+#head__row__coin {
+  width: 215px;
+  justify-content: flex-start;
+}
+
+#head__row__coin__2 {
+  width: 215px;
+  justify-content: flex-start;
+}
+
+#name__div {
+  margin-left: 46px;
+}
+
+.star__image__inactive {
+  height: 20px;
+  width: 20px;
+  filter: invert(24%) sepia(7%) saturate(478%) hue-rotate(202deg) brightness(100%) contrast(98%);
+}
+
+.star__image__active {
+  height: 20px;
+  width: 20px;
+  filter: invert(87%) sepia(9%) saturate(6308%) hue-rotate(347deg) brightness(105%) contrast(96%);
+}
+
+.star__button {
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: inherit;
+}
+
+.exchanges__rank__column {
+  width: 44px;
+}
+
+#head__row__name {
+  width: 225px;
+}
+
+#exchanges__row__volume {
+  width: 150px;
+}
+
+.exchanges__image__column {
+  display: flex;
+  padding-right: 5px;
+  width: 40px;
+  height: auto;
+  justify-self: flex-start;
+}
+
+.exchanges__name__column {
+  display: flex !important;
+  font-family: Inter;
+  font-weight: 500;
+  width: 180px;
+  color: rgb(228 228 231);
+  vertical-align: middle;
+  justify-content: flex-start;
+}
+
+.mcap__column {
+  width: 160px;
+}
+
+.exchanges__trust__column {
+  width: 190px;
+  font-weight: 600;
+}
+
+.exchanges__volume__column {
+  width: 150px;
+}
+
 @media screen and (max-width: 890px) {
   .nav__list { display: none;}
 }
@@ -544,4 +735,149 @@ ul {
     align-items: center; 
     }
   .footer__left__div {margin-bottom: 50px;}
+}
+
+.template__container {
+  display: grid;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  width: 1340px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-row-gap: 30px;
+  grid-column-gap: 50px;
+  grid-template-areas:
+   "coin coin"
+   "graph info"
+   "indicators indicators"
+   ;
+}
+
+.coin__block {
+  display: flex;
+  grid-area: coin;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.coin__name__block {
+  display: flex;
+  align-items: center;
+}
+
+.name__block__stats {
+  display: flex;
+  flex-direction: column;
+}
+
+.rank__block {
+  display: flex;
+  justify-content: left;
+}
+
+.rank__span {
+  background-color: #2E2E33;
+  border-radius: 0.4rem;
+  font-size: 0.8rem;
+  padding: 5px;
+  text-align: center;
+}
+
+.name__block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.name__block__ticker {
+  color: #716E68;
+  align-self: center;
+  margin-left: 10px;
+  font-weight: 600;
+}
+.coin__price__block {
+  display: flex;
+  justify-content: flex-start;
+  align-items: top;
+  padding-top: 20px;
+}
+
+.price__ticker__block {
+  color: #716E68;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.info__text__block {
+  display: flex;
+  grid-area: info;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  background-color: #27272A;
+  color: #D4D4D8;
+  text-align: left;
+  border-radius: 1.5rem;
+  padding: 20px;
+}
+
+.info__block__title h3 {
+  margin: 0px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.graph__block {
+  display: flex;
+  grid-area: graph;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.indicator__block {
+  display: flex;
+  grid-area: indicators;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.indicator__list__element {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.table__row:hover {
+  background-color: #9e9ea01c;
+}
+
+.exchanges__row:hover {
+  background-color: #9e9ea01c;
+}
+
+.indicator__name {
+  color: #716E68;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.table__row__button {
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.graph__main__block{
+  display: flex;
+  width: 800px;
+  height: 500px;
+}
+
+.tradingview-widget-container {
+  width: 100%;
 }
